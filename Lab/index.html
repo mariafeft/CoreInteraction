@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="utf-8"/>
+	<style>
+		body{line-height:1em;}
+	</style>
+</head>
+<body>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script>
+$.getJSON("https://raw.githubusercontent.com/robbykraft/Interaction/master/mystery.json", function(data){
+	var points = data.pixels;
+	for(var j = 0; j < points.length; j++){
+		for(var i = 0; i < points[j].length; i++){
+			var span = document.createElement("span");
+			span.innerHTML = "█";
+			if(points[j][i] == 0) $(span).css("color","lightBlue")
+			if(points[j][i] == 1) $(span).css("color","red")
+			if(points[j][i] == 2) $(span).css("color","tan")
+			if(points[j][i] == 3) $(span).css("color","black")
+			document.body.appendChild(span);
+		}
+		var br = document.createElement("br");
+		document.body.appendChild(br);
+	}
+});
+</script>
+</body>
+</html>
